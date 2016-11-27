@@ -1,0 +1,59 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "UTF-8"}
+    %title RubyChina
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+
+    %nav.navbar.navbar-default
+
+      .container
+
+        .navbar-header
+          = link_to 'Ruby China', root_path, class: "navbar-brand"
+
+        .collapse.navbar-collapse
+
+          %ul.nav.navbar-nav
+            %li
+              %a Topics
+            %li
+              %a Wiki
+            %li
+              %a{ :href => "" } Sites
+            %li
+              %a{ :href => "" } 招聘
+            %li
+              %a{ :href => "" } Gems
+
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to 'Sign Up', new_user_registration_path
+            -  if user_signed_in?
+              %li
+                = link_to 'Sign Out', destroy_user_session_path, method: :delete
+            - else
+              %li
+                = link_to 'Sign In', new_user_registration_path
+            %li
+              = link_to 'New Article', new_article_path
+
+            .navbar-form.navbar-right
+              .form-group
+                %input{type: "text", class: "form-control", placeholder: "搜索本站内容"}
+                %button{type: "submit", class: "btn btn-default"} Submit
+
+
+    .container
+
+      %p.notice
+        = notice
+      %p.alert
+        = alert
+
+      = yield

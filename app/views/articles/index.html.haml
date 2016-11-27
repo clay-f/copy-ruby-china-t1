@@ -1,0 +1,25 @@
+.panel.panel-default
+  %p.text-center.text-small
+    Ruby China 官方 RubyGems 镜像、Ruby 镜像正式上线!
+    %span gem source -a https://gems.ruby-china.org
+
+.row
+  .col-sm-6.col-md-3
+
+
+.panel.panel-default
+  .panel-heading
+    %p.panel-title 社区精华帖
+  .panel-body
+    - @article.each do |article|
+      %h3.col-md-6
+        = link_to article.title, article
+
+.panel.panel-default
+  .panel.panel-heading
+    %p.panel-title Node Navigation
+
+
+.panel.panel-default
+  .panel.panel-heading
+    %p.panel-title hot Cities
