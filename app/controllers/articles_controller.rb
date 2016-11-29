@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @article = Article.all.order("created_at DESC")
@@ -47,7 +48,7 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params[:article].permit(:title, :text)
+      params[:article].permit(:title, :text, :node_id)
     end
 
 end

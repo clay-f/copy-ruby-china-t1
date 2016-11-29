@@ -12,14 +12,44 @@
     %p.panel-title 社区精华帖
   .panel-body
     - @article.each do |article|
-      %h3.col-md-6
+      %h3.col-md-6.clearfix
         = link_to article.title, article
+        %span.badge.pull-right
+          = article.comments.count
+  .panel-footer
+    = link_to '查看更多精华帖', topics_path
 
 .panel.panel-default
   .panel.panel-heading
     %p.panel-title Node Navigation
-
+  .panel-body
+    .col-md-1
+      %a{href: "topics/#{1}"} 新手问题
+    .col-md-1
+      %a{href: "topics/#{2}"} 招聘
+    %div.col-md-1
+      %a{href: "topics/#{3}"} Rails
+    %div.col-md-1
+      %a{href: "topics/#{4}"} Gem
+    %div.col-md-1
+      %a{href: "topics/#{5}"} 部署
+    %div.col-md-1
+      %a{href: "topics/#{6}"} Ruby
+    %div.col-md-1
+      %a{href: "topics/#{7}"} RVM/Rbenv
+    %div.col-md-1
+      %a{href: "topics/#{8}"} 求职
+    %div.col-md-1
+      %a{href: "topics/#{9}"} JRuby
+    %div.col-md-1
+      %a{href: "topics/#{10}"} mRuby
+    %div.col-md-1
+      %a{href: "topics/#{11}"} 开源项目
+    %div.col-md-1
+      %a{href: "topics/#{12}"} Testing
 
 .panel.panel-default
   .panel.panel-heading
     %p.panel-title hot Cities
+
+= console

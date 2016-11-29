@@ -2,7 +2,7 @@
 %html{:lang => "en"}
   %head
     %meta{:charset => "UTF-8"}
-    %title RubyChina
+    %title Ruby China
 
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -21,7 +21,7 @@
 
           %ul.nav.navbar-nav
             %li
-              %a Topics
+              = link_to 'Topics', topics_path
             %li
               %a Wiki
             %li
@@ -32,16 +32,19 @@
               %a{ :href => "" } Gems
 
           %ul.nav.navbar-nav.navbar-right
-            %li
-              = link_to 'Sign Up', new_user_registration_path
             -  if user_signed_in?
               %li
-                = link_to 'Sign Out', destroy_user_session_path, method: :delete
+                = link_to 'Account', edit_user_registration_path
+              %li
+                = link_to 'Login Out', destroy_user_session_path, method: :delete
+              %li
+                = link_to 'New Article', new_article_path
+
             - else
               %li
-                = link_to 'Sign In', new_user_registration_path
-            %li
-              = link_to 'New Article', new_article_path
+                = link_to 'Sign Up', new_user_registration_path
+              %li
+                = link_to 'Sign In', new_user_session_path
 
             .navbar-form.navbar-right
               .form-group
@@ -50,10 +53,5 @@
 
 
     .container
-
-      %p.notice
-        = notice
-      %p.alert
-        = alert
 
       = yield

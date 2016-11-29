@@ -1,4 +1,7 @@
-= simple_form_for ([@article, @comments]) do |f|
-  = f.input :integer
-  = f.input :text
-  = f.input :submit, class: "btn btn-primary"
+= simple_form_for ([@article, @comment]) do |f|
+  = f.input :raty
+  = f.input :body
+  = f.button :submit, class: "btn btn-primary"
+
+
+= console
