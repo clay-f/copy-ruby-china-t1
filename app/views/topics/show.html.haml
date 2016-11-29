@@ -1,0 +1,12 @@
+- if @article.count != 0
+  - @article.each do |article|
+    %h2.col-xs-12.col-md-12
+      = link_to article.title, article
+      %span.badge.col-md-offset-3
+        = article.comments.count
+- else
+  %p.help-block.text-capitalize
+    here no title yet.
+
+
+= console

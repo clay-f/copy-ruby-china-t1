@@ -1,0 +1,25 @@
+%nav.navbar.navbar-default
+  .navbar-header
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          %a 所有节点
+        %li.active
+          %a{href: "#"} 默认
+        %li
+          %a 优质帖子
+        %li
+          %a 无人问津
+        %li
+          %a 最新发布
+
+.panel.panel-default
+  .panel-body
+    - @article.each do |article|
+      %h3.clearfix
+        = link_to article.title, article
+        %span.badge.pull-right
+          = article.comments.count
+
+
+

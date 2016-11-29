@@ -1,0 +1,8 @@
+%h4
+  = comment.raty
+  = comment.body
+
+= link_to 'Edit comment', edit_article_comment_path(@article, comment)
+= link_to 'Destroy', article_comment_path(@article, comment), method: :delete, data: { confirm: "Are you sure?" }
+
+%br/
