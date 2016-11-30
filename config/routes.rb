@@ -2,10 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :articles do
-    resources :comments
+    resources :comments, except: [:index]
   end
 
-  resources :topics
+  resources :topics, only: [:show, :index]
+  resources :sites, only: [:index]
 
   root 'articles#index'
 

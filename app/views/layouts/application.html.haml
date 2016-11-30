@@ -12,7 +12,7 @@
 
     %nav.navbar.navbar-default
 
-      .container
+      .container.logo
 
         .navbar-header
           = link_to 'Ruby China', root_path, class: "navbar-brand"
@@ -25,33 +25,78 @@
             %li
               %a Wiki
             %li
-              %a{ :href => "" } Sites
+              = link_to 'Sites', sites_path
             %li
-              %a{ :href => "" } 招聘
+              = link_to '招聘'
             %li
-              %a{ :href => "" } Gems
+              %a{ :href => "https://gems.ruby-china.org/" } Gems
 
           %ul.nav.navbar-nav.navbar-right
-            -  if user_signed_in?
-              %li
-                = link_to 'Account', edit_user_registration_path
-              %li
-                = link_to 'Login Out', destroy_user_session_path, method: :delete
-              %li
-                = link_to 'New Article', new_article_path
-
-            - else
-              %li
-                = link_to 'Sign Up', new_user_registration_path
-              %li
-                = link_to 'Sign In', new_user_session_path
 
             .navbar-form.navbar-right
               .form-group
                 %input{type: "text", class: "form-control", placeholder: "搜索本站内容"}
                 %button{type: "submit", class: "btn btn-default"} Submit
 
+            -  if user_signed_in?
+              %li
+                = link_to 'New Article', new_article_path
+              %li.dropdown
+                %a{href: "#", class: "dropdown-toggle", "data-toggle": "dropdown", role: "button"}
+                  Account
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    = link_to 'Account', edit_user_registration_path
+                  %li.divider
+                  %li
+                    = link_to 'Login Out', destroy_user_session_path, method: :delete
+            - else
+              %li
+                = link_to 'Sign Up', new_user_registration_path
+              %li
+                = link_to 'Sign In', new_user_session_path
+
+
 
     .container
 
       = yield
+
+    .container
+
+      %footer
+
+        .col-md-1.col-xs-1.thumbnail
+          = image_tag("ruby-logo.gif")
+
+        .col-md-11.col-xs-11
+          %a{ :href => "#" } 关于
+          %a{ :href => "#" } RubyConf
+          %a{ :href => "#" } Ruby 镜像
+          %a{href: "https://rubygems.org"} RubyGems
+          %a{href: "#"} 镜像
+          %a{href: "#"} Status
+          %a{href: "#"} 活跃会员
+          %a{href: "#"} 组织
+          %a{href: "#"} API
+          %a{href: "#"} 贡献者
+        .help-block.text-muted.col-md-11
+          中国 Ruby 社区，由众多爱好者共同维护，致力于构建完善的 Ruby 中文社区。
+        .col-md-11
+          .col-md-3
+            %span.text-muted
+              服务器由
+            %a{href: "https://www.ucloud.cn/"} UCloud
+            %span.text-muted 赞助
+          .col-md-3
+            %span.text-muted
+              CDN 由
+            %a{href: "https://www.upyun.com/index.html"} UpYun
+            %span.text-muted
+              赞助
+          .col-md-4
+            %span.text-muted Gem 服务器由
+            %a{href: "https://www.qcloud.com/en/index.html"} 腾讯云
+            %span.text-muted 赞助
+

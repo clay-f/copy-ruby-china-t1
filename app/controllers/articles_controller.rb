@@ -8,11 +8,12 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = current_user.article.build
+    @article = current_user.articles.build
+    @nodes = Node.all.map{ |c| [c.nodeName, c.id] }
   end
 
   def create
-    @article = current_user.article.build(article_params)
+    @article = current_user.articles.build(article_params)
     if @article.save
       redirect_to @article
     else
@@ -24,7 +25,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-
+    @nodes = Node.all.map{ |c| [c.nodeName, c.id] }
   end
 
   def update
@@ -50,5 +51,6 @@ class ArticlesController < ApplicationController
     def article_params
       params[:article].permit(:title, :text, :node_id)
     end
+
 
 end
