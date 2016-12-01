@@ -1,3 +1,7 @@
-- @article.each do |article|
-  %a{href: "/articles/#{article.id}"}
-    = image_tag article.article_img.url(:index_img)
+- if @article.blank?
+  .help-block.well.text-capitalize.text-center
+    here is not title yet ^_^.
+- else
+  - @article.each do |article|
+    %a{href: "/articles/#{article.id}"}
+      = image_tag article.article_img.url(:index_img)

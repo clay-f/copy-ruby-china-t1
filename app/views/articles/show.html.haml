@@ -8,7 +8,8 @@
       %span.text-muted
         = @article.node.nodeName
   .panel-body
-    = image_tag @article.article_img.url(:show_img)
+    - if !@article.article_img.blank?
+      = image_tag @article.article_img.url(:show_img)
     %p
       = @article.text
 .panel.panel-default
