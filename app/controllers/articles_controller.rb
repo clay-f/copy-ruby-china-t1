@@ -3,6 +3,14 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def search
+    if params[:search].present?
+      @article = Article.search(params[:search])
+    else
+      @article = Article.all.order("created_at DESC")
+    end
+  end
+
   def index
     @article = Article.all.order("created_at DESC")
   end

@@ -1,0 +1,3 @@
+- @article.each do |article|
+  %a{href: "/articles/#{article.id}"}
+    = image_tag article.article_img.url(:index_img)

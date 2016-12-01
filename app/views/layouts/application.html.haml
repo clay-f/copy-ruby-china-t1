@@ -11,14 +11,10 @@
   %body
 
     %nav.navbar.navbar-default
-
       .container.logo
-
         .navbar-header
           = link_to 'Ruby China', root_path, class: "navbar-brand"
-
         .collapse.navbar-collapse
-
           %ul.nav.navbar-nav
             %li
               = link_to 'Topics', topics_path
@@ -30,14 +26,7 @@
               = link_to '招聘', jobs_path
             %li
               %a{ :href => "https://gems.ruby-china.org/" } Gems
-
           %ul.nav.navbar-nav.navbar-right
-
-            .navbar-form.navbar-right
-              .form-group
-                %input{type: "text", class: "form-control", placeholder: "搜索本站内容"}
-                %button{type: "submit", class: "btn btn-default"} Submit
-
             -  if user_signed_in?
               %li
                 %a{href: "#"}
@@ -65,19 +54,19 @@
               %li
                 = link_to 'Sign In', new_user_session_path
 
+            = form_tag search_articles_path, method: :get, class: "navbar-form navbar-right", role: "search" do
+              .form-group
+                = text_field_tag :search, params[:search1], class: "form-control"
+                = submit_tag "搜索本站内容", name: "nil", class: "btn btn-fefault"
 
+    .main
+      .container
+        = yield
 
-    .container
-
-      = yield
-
-    .container
-
-      %footer
-
+    %footer
+      .container
         .col-md-1.col-xs-1.thumbnail
           = image_tag("ruby-logo.gif")
-
         .col-md-11.col-xs-11
           %a{ :href => "#" } 关于
           %a{ :href => "#" } RubyConf

@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
 
+  searchkick
   has_many :comments, dependent: :destroy
   belongs_to :user
   belongs_to :node
