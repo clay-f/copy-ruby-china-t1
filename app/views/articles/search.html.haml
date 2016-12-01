@@ -2,6 +2,33 @@
   .help-block.well.text-capitalize.text-center
     here is not title yet ^_^.
 - else
-  - @article.each do |article|
-    %a{href: "/articles/#{article.id}"}
-      = image_tag article.article_img.url(:index_img)
+  .panel.panel-default
+    .panel-body
+      - @article.each do |article|
+        = link_to article.title, article
+        %span.badge.pull-right
+          = article.comments.count
+        %hr/
+    .panel-footer.clearfix
+      %ul.pagination
+        %li.disabled
+          %a{href: "#"}
+            %span &laquo;
+            Previous
+        %li.active
+          %a{ :href => "#" } 1
+        %li
+          %a{ :href => "#" } 2
+        %li
+          %a{ :href => "#" } 3
+        %li
+          %a{ :href => "#" } 4
+        %li
+          %a{ :href => "#" } 5
+        %li.disabled
+          %a{href: "#"}
+            Next
+            %span
+              &raquo;
+
+
