@@ -1,17 +1,21 @@
-.jumbotron
-  %h1
-    %span.text-muted
-      = @article.title
-  %p
-    Node:
-    %span.text-muted
-      = @article.node.nodeName
-%h2
-  comments:
-  = render  @article.comments
+.panel.panel-default
+  .panel-heading
+    %h5
+      %span.text-muted
+        = @article.title
+    %p
+      Node:
+      %span.text-muted
+        = @article.node.nodeName
+  .panel-body
+    %p
+      = @article.text
+.panel.panel-default
+  %h2
+    = render  @article.comments
 
-%span.text-muted
-  = link_to '发表评论', new_article_comment_path(@article), role: "button", class: "btn btn-primary"
+    %span.text-muted
+      = link_to '发表评论', new_article_comment_path(@article), role: "button", class: "btn btn-primary"
 
 - if user_signed_in?
   - if @article.user_id == current_user.id

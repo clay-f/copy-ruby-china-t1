@@ -1,10 +1,53 @@
 .panel.panel-default
-  %p.text-center.text-small
-    Ruby China 官方 RubyGems 镜像、Ruby 镜像正式上线!
-    %span gem source -a https://gems.ruby-china.org
+  %p.text-center.text-small.text-muted
+    %img{src: "https://twemoji.b0.upaiyun.com/2/svg/1f381.svg", style: "width: 55px;" }
+    Ruby China 官方
+    %a.text-muted{href: "https://gems.ruby-china.org/"} RubyGems 镜像
+    %a.text-muted{href: "https://ruby-china.org/wiki/ruby-mirror"}
+      Ruby 镜像
+    正式上线!
+    %br/
+    %span.text-danger
+      gem source -a https://gems.ruby-china.org
 
 .row
-  .col-sm-6.col-md-3
+  .col-md-3
+    .item.item1
+      .icon
+        = link_to image_tag("chat.gif", class: "chat"), topics_path
+      .text
+        %a{class: "text-muted", href: "/topics"}
+          Ruby 社区
+          %i.pull-right
+            %span.glyphicon.glyphicon-arrow-right
+  .col-md-3
+    .item.item2
+      .icon
+        = link_to image_tag("people.gif", class: "documents")
+      .text
+        %a{href: "/articles", class: "text-muted"}
+          技术文档
+          %i.pull-right
+            %span.glyphicon.glyphicon-arrow-right
+  .col-md-3
+    .item.item3
+      .icon
+        = link_to image_tag("document.gif", class: "documents"), jobs_path
+      .text
+        %a{href: "/jobs", class: "text-muted"}
+          招聘与求职
+          %i.pull-right
+            %span.glyphicon.glyphicon-arrow-right
+  .col-md-3
+    .item.item4
+      .icon
+        = link_to image_tag("ruby.gif", class: "ruby"), topics_path
+      .text
+        %a{href: "/topics", class: "text-muted"}
+          精华文章
+          %i.pull-right
+            %span.glyphicon.glyphicon-arrow-right
+%br/
 
 
 .panel.panel-default

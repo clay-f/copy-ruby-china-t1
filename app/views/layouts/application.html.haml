@@ -27,7 +27,7 @@
             %li
               = link_to 'Sites', sites_path
             %li
-              = link_to '招聘'
+              = link_to '招聘', jobs_path
             %li
               %a{ :href => "https://gems.ruby-china.org/" } Gems
 
@@ -40,7 +40,15 @@
 
             -  if user_signed_in?
               %li
-                = link_to 'New Article', new_article_path
+                %a{href: "#"}
+                  %span.glyphicon.glyphicon-bell
+              %li.dropdown
+                %a{href: "#", class: "dropdown-toggle", "data-toggle": "dropdown", role: "button"}
+                  %span.glyphicon.glyphicon-plus
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    = link_to 'New Article', new_article_path
               %li.dropdown
                 %a{href: "#", class: "dropdown-toggle", "data-toggle": "dropdown", role: "button"}
                   Account

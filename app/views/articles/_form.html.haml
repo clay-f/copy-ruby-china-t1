@@ -1,5 +1,7 @@
 = simple_form_for @article do |f|
+  %span.text-muted
+    Node:
   = f.select :node_id, @nodes
   = f.input :title
-  = f.input :text
+  = f.input :text, size: "800"
   = f.button :submit, class: "btn btn-primary"
