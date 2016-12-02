@@ -1,0 +1,14 @@
+.form-group
+  = simple_form_for @note do |f|
+    = f.text_area :text,class: "form-control", "rows": 25
+    .help-block.text-capitalize
+      please use
+      %a{href: "#", style: "color: black;"} markdown
+      document
+      format
+    .form-group
+      .row
+        .col-md-3.col-md-offset-1
+          = f.button :submit, class: "btn btn-primary btn-lg btn-block", value: "Save"
+        .col-md-2
+          = link_to 'Cancel', notes_path, class: "btn btn-default btn-lg btn-block"

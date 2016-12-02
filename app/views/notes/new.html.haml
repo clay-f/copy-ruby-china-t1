@@ -1,0 +1,23 @@
+.row
+  .col-md-9
+    .panel.panel-default
+      .panel-panel-body
+        = render 'form'
+
+  .sidebar.col-md-3
+    .panel.panel-default
+      .panel-body
+        %h5 hello
+      .panel-footer
+        = link_to "查看我的 2 条 Note...", notes_path, class: "text-muted"
+
+    .panel.panel-default
+      .panel-heading
+        我最近创造的 Note
+      .panel-body
+        %ul.list-group
+          %li.list-group-item
+            - @notes.each do |note|
+              = link_to note.text, note, class: "text-muted"
+
+-#= console

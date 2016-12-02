@@ -1,0 +1,14 @@
+.panel.panel-default
+  .panel-heading.clearfix
+    .info
+      共
+      = @note.text.length
+      characters &bull;
+      = @note.created_at
+      .opts.pull-right
+        = link_to edit_note_path do
+          %i.glyphicon.glyphicon-pencil
+        = link_to note_path(@note), method: :delete, data: {confirm: "Are you sure?"} do
+          %i.glyphicon.glyphicon-trash
+  .panel-body
+    = @note.text

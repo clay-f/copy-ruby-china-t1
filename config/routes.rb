@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :topics, only: [:show, :index]
   resources :sites, only: [:index]
   resources :jobs, only: [:index]
+  resources :notes
 
   root 'articles#index'
 
