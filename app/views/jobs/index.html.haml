@@ -8,8 +8,8 @@
   .panel.panel-default
     .panel-body
       - @article.each do |article|
-        .col-md-12.col-xs-12
-          = link_to article.title, article
+        %h5.col-md-12.col-xs-12
+          = link_to article.title, article, class: "text-muted"
           %span.badge.col-md-offset-3
             = article.comments.count
           %hr
@@ -22,17 +22,17 @@
               &laquo;
             Prev
         %li.active
-          %a{href: "#"} 1
+          %a{style: "color: #555", href: "#"} 1
         %li
-          %a{href: "#"} 2
+          %a{style: "color: #555", href: "#"} 2
         %li
-          %a{href: "#"} 3
+          %a{style: "color: #555", href: "#"} 3
         %li
-          %a{href: "#"} 4
+          %a{style: "color: #555", href: "#"} 4
         %li
-          %a{href: "#"} 5
+          %a{style: "color: #555", href: "#"} 5
         %li
-          %a{href: "#"}
+          %a{style: "color: #555", href: "#"}
             Next
             %span
               &raquo;

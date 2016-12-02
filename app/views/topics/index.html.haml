@@ -15,8 +15,8 @@
 .panel.panel-default
   .panel-body
     - @article.each do |article|
-      %h3.clearfix
-        = link_to article.title, article
+      %h5.clearfix
+        = link_to article.title, article, style: "color: #222222;"
         %span.badge.pull-right
           = article.comments.count
         %hr
@@ -27,17 +27,17 @@
           %span &laquo;
           Previous
       %li.active
-        %a{ :href => "#" } 1
+        %a{style: "color: #555;", :href => "#" } 1
       %li
-        %a{ :href => "#" } 2
+        %a{style: "color: #555;", :href => "#" } 2
       %li
-        %a{ :href => "#" } 3
+        %a{style: "color: #555;", :href => "#" } 3
       %li
-        %a{ :href => "#" } 4
+        %a{style: "color: #555;", :href => "#" } 4
       %li
-        %a{ :href => "#" } 5
-      %li.disabled
-        %a{href: "#"}
+        %a{style: "color: #555;", :href => "#" } 5
+      %li
+        %a{style: "color: #555;",href: "#"}
           Next
           %span
             &raquo;
