@@ -6,7 +6,7 @@
           %ul.nav.navbar-nav
             %li
               %a 所有节点
-            %li.active
+            %li
               = link_to '默认', topics_path
             %li
               = link_to '优质帖子', popular_topics_path
@@ -14,22 +14,22 @@
               = link_to '无人问津', no_reply_topics_path
             %li
               = link_to '最新发布', last_topics_path
-
     .panel.panel-default
       .panel-body
         %ul.list-group
           - @article.each do |article|
-            %li.list-group-item
-              .media-body
-                .media-heading
-                  = link_to article.title, article, style: "color: #222222;"
-                .media-info
-                  = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
-                  - if ! article.comments.blank?
-                    = article.comments.last.created_at
-              .media-right
-                %span.badge.pull-right
-                  = article.comments.count
+            - if article.comments.count >= 5
+              %li.list-group-item
+                .media-body
+                  .media-heading
+                    = link_to article.title, article, style: "color: #222222;"
+                  .media-info
+                    = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
+                    - if ! article.comments.blank?
+                      = article.comments.last.created_at
+                .media-right
+                  %span.badge.pull-right
+                    = article.comments.count
 
       .panel-footer.clearfix
         %ul.pagination
@@ -59,7 +59,7 @@
     .panel.panel-default
       .panel-heading 小贴士
       .panel-body
-        一切都需要先上传一个头像开始 !
+        使用 CoffeeScript 和 Sass 来写 JavaScript 和 CSS 提高开发效率
 
     .panel.panel-default
       .panel-heading 推荐 Ruby 资源

@@ -6,7 +6,7 @@
           %ul.nav.navbar-nav
             %li
               %a 所有节点
-            %li.active
+            %li
               = link_to '默认', topics_path
             %li
               = link_to '优质帖子', popular_topics_path
@@ -14,7 +14,6 @@
               = link_to '无人问津', no_reply_topics_path
             %li
               = link_to '最新发布', last_topics_path
-
     .panel.panel-default
       .panel-body
         %ul.list-group
@@ -59,7 +58,7 @@
     .panel.panel-default
       .panel-heading 小贴士
       .panel-body
-        一切都需要先上传一个头像开始 !
+        回帖里面当 “喜欢” 的数量达到 5 人以上，此回帖将会以高亮显示。
 
     .panel.panel-default
       .panel-heading 推荐 Ruby 资源
