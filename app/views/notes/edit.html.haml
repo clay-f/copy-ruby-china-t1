@@ -7,7 +7,8 @@
   .sidebar.col-md-3
     .panel.panel-default
       .panel-body
-        %h5 hello
+        %h5
+          = link_to '新建 Note', new_note_path, class: "btn btn-primary btn-block"
       .panel-footer
         = link_to "查看我的 2 条 Note...", notes_path, class: "text-muted"
 

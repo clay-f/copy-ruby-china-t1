@@ -1,14 +1,31 @@
-.panel.panel-default
-  .panel-heading.clearfix
-    .info
-      共
-      = @note.text.length
-      characters &bull;
-      = @note.created_at
-      .opts.pull-right
-        = link_to edit_note_path do
-          %i.glyphicon.glyphicon-pencil
-        = link_to note_path(@note), method: :delete, data: {confirm: "Are you sure?"} do
-          %i.glyphicon.glyphicon-trash
-  .panel-body
-    = @note.text
+.row
+  .col-md-9
+    .panel.panel-default
+      .panel-heading.clearfix
+        .info
+          共
+          = @note.text.length
+          characters &bull;
+          = @note.created_at
+          .opts.pull-right
+            = link_to edit_note_path do
+              %i.glyphicon.glyphicon-pencil
+            = link_to note_path(@note), method: :delete, data: {confirm: "Are you sure?"} do
+              %i.glyphicon.glyphicon-trash
+      .panel-body
+        = @note.text
+  .col-md-3.sidebar
+    .panel.panel-default
+      .panel-body
+        = link_to '新建 Note', new_note_path, class: "btn btn-success btn-block"
+      .panel-footer
+        = link_to "查看我的 #{Note.all.count} 条 Note...", notes_path, style: "color: black;"
+
+    .panel.panel-default
+      .panel-heading
+        我最近创建的 Note
+      .panel-body
+        %ul.list-group
+          - @notes.each do |notes|
+            %li.list-group-item
+              = link_to notes.text, notes, class: "text-muted"

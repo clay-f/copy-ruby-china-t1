@@ -7,6 +7,12 @@
       document
       format
     .form-group
+      %label.control-label
+        %input{type: "checkbox"}
+      %span.text-danger
+        %i.glyphicon.glyphicon-warning-sign
+        除非你选择公开，否则此 Note 的所有内容将是保密的！
+    .form-group
       .row
         .col-md-3.col-md-offset-1
           = f.button :submit, class: "btn btn-primary btn-lg btn-block", value: "Save"

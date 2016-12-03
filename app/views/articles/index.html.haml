@@ -1,16 +1,16 @@
 .panel.panel-default
-  %p.text-center.text-small.text-muted
+  %p.text-center.text-small
     %img{src: "https://twemoji.b0.upaiyun.com/2/svg/1f381.svg", style: "width: 55px;" }
     Ruby China 官方
-    %a.text-muted{href: "https://gems.ruby-china.org/"} RubyGems 镜像
-    %a.text-muted{href: "https://ruby-china.org/wiki/ruby-mirror"}
+    %a{href: "https://gems.ruby-china.org/", style: "color: black;"} RubyGems 镜像
+    %a{href: "https://ruby-china.org/wiki/ruby-mirror", style: "color: black;"}
       Ruby 镜像
     正式上线!
     %br/
-    %span.text-danger
+    %span{style: "color: #CD496A; background-color: #F9F2F4;"}
       gem source -a https://gems.ruby-china.org
 
-.row
+.row.hidden-sm.hidden-xs
   .col-md-3
     .item.item1
       .icon
@@ -53,12 +53,19 @@
 .panel.panel-default
   .panel-heading
     %p.panel-title 社区精华帖
-  .panel-body
+  .panel-body.row
     - @article.each do |article|
       %h5.col-md-6.clearfix
         = link_to article.title, article, style: "color: black";
         %span.badge.pull-right
           = article.comments.count
+        .info.text-muted
+          = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
+          &bull;
+          - if ! article.comments.blank?
+            = article.comments.last.created_at
+        %hr/
+
   .panel-footer
     = link_to '查看更多精华帖...', topics_path, class: "text-muted"
 

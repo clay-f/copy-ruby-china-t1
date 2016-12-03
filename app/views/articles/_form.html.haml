@@ -1,8 +1,13 @@
+.form-group
 = simple_form_for @article, html: {multipart: true } do |f|
   %span.text-muted
     Node:
   = f.select :node_id, @nodes
   = f.file_field :article_img
   = f.input :title
-  = f.input :text, size: "800"
-  = f.button :submit, class: "btn btn-primary"
+  .form-group
+    = f.text_area :text, class: "form-control", "rows": 20
+  .form-group
+    = f.button :submit, class: "btn btn-primary col-xs-2", value: "Save"
+    .pull-right
+      = link_to '排版说明', "https://ruby-china.org/markdown", class: "text-muted"

@@ -1,3 +1,45 @@
-.panel.panel-default
-  .panel-body
-    %h1 Hello World!
+.row
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        Notes
+        %span.pull-right
+          已有
+          = Note.all.count
+          条 Note
+      .panel-body
+        - if Note.all.count == 0
+          %div.text-center{style: "padding: 60px 0;"}
+            你还没有创建过一个文件。
+        - else
+          %ul.list-group
+            - @notes.each do |notes|
+              %list-group-item
+                .media-heading
+                  = link_to notes.text, edit_note_path(notes), class: "text-muted"
+                  %span.pull-right
+                    = link_to notes do
+                      %i.glyphicon.glyphicon-pencil
+                .info
+                  = notes.text.length
+                  characters,
+                  = notes.created_at
+              %hr/
+      .panel-footer.clearfix
+
+  .col-md-3.sidebar
+    .panel.panel-default
+      .panel-body
+        = link_to '新建 Note', new_note_path, class: "btn btn-primary btn-block"
+      .panel-footer
+        = link_to "查看我的 #{Note.all.count} 条 Note...", notes_path, style: "color: black;"
+    - if Note.all.count != 0
+      .panel.panel-default
+        .panel-heading
+          我最近创建的 Note
+        .panel-body
+          %ul.list-group
+            - @notes.each do |note|
+              %li.list-group-item
+                = link_to note.text, note, class: "text-muted"
+

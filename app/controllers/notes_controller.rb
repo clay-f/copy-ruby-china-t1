@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
 before_action :set_note, only: [:show, :edit, :update, :destroy]
-before_action :set_notes, only: [:edit, :new]
+before_action :set_notes, only: [:edit, :new, :show, :index]
 
   def index
     @note = Note.all.order("created_at DESC")
@@ -32,7 +32,9 @@ before_action :set_notes, only: [:edit, :new]
   end
 
   def destroy
-
+    if @note.destroy
+      redirect_to notes_path
+    end
   end
 
 

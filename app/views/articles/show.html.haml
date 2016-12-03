@@ -1,27 +1,46 @@
-.panel.panel-default
-  .panel-heading
-    %h5
-      %span.text-muted
-        = @article.title
-    %p
-      Node:
-      %span.text-muted
-        = @article.node.nodeName
-  .panel-body
-    - if !@article.article_img.blank?
-      = image_tag @article.article_img.url(:show_img)
-    %p
-      = @article.text
-.panel.panel-default
-  %h2
-    = render  @article.comments
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        %h3
+          = @article.title
+        %p
+          Node:
+          %span.text-muted
+            = @article.node.nodeName
+      .panel-body
+        - if !@article.article_img.blank?
+          = image_tag @article.article_img.url(:show_img)
+        %p
+          = @article.text
 
-    %span.text-muted
-      = link_to '发表评论', new_article_comment_path(@article), role: "button", class: "btn btn-primary"
+    .panel.panel-default
+      .panel-heading
+        共收到
+        = @article.comments.all.count
+        条回复
+      .panel-body
+        - if @article.comments.blank?
+          .well.text-capitalize.help-block.text-center
+            No Reply at the moment.
+        - else
+          = render  @article.comments
 
-- if user_signed_in?
-  - if @article.user_id == current_user.id
-    .btn.btn-group.col-xs-offset-5
-      = link_to 'Back', root_path, class: "btn btn-default"
-      = link_to 'Edit', edit_article_path, class: "btn btn-primary"
-      = link_to 'Destroy', article_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
+    .panel.panel-default
+      .panel.panel-body
+        %span.text-muted
+          = link_to '发表评论', new_article_comment_path(@article), role: "button", class: "btn btn-primary"
+
+    .panel.panel-default
+      .panel-heading 相关话题
+      %ul.list-group
+        - Article.all.shuffle[0..4].each do |article|
+          %li.list-group-item
+            = link_to article.title, article, class: "text-muted"
+
+    - if user_signed_in?
+      - if @article.user_id == current_user.id
+        .btn.btn-group.col-xs-offset-5
+          = link_to 'Back', root_path, class: "btn btn-default"
+          = link_to 'Edit', edit_article_path, class: "btn btn-primary"
+          = link_to 'Destroy', article_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"

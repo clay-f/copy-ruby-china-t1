@@ -1,11 +1,9 @@
-%ul
-  %li
-    %h4
-      = comment.raty
-      = comment.body
-
-- if user_signed_in?
-  - if @article.user_id == current_user.id
-    = link_to 'Edit', edit_article_comment_path(@article, comment), role: "button", class: "btn btn-default"
-    = link_to 'Destroy', article_comment_path(@article, comment), method: :delete, data: { confirm: "Are you sure?" }, role: "button", class: "btn btn-warning"
-%hr
+%ul.list-group
+  %li.list-group-item.clearfix
+    = comment.raty
+    = comment.body
+    - if user_signed_in?
+      - if @article.user_id == current_user.id
+        .pull-right
+          = link_to edit_article_comment_path(@article, comment) do
+            %i.glyphicon.glyphicon-pencil

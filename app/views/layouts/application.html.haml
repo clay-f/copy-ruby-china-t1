@@ -13,13 +13,16 @@
     %nav.navbar.navbar-default
       .container.logo
         .navbar-header
-          = link_to 'Ruby China', root_path, class: "navbar-brand"
+          = link_to root_path, class: "navbar-brand" do
+            %b
+              %span{style: "color: #E9552F;"} Ruby
+              %span{style: "color: #666666;"} China
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li
               = link_to 'Topics', topics_path
             %li
-              %a Wiki
+              = link_to 'Wiki', "https://ruby-china.org/wiki"
             %li
               = link_to 'Sites', sites_path
             %li
@@ -47,6 +50,12 @@
                 %ul.dropdown-menu
                   %li
                     = link_to 'Account', edit_user_registration_path
+                    - if ! @notes.blank?
+                      %li
+                        = link_to 'Notes', notes_path, style: "color: red;"
+                    - else
+                      %li
+                        = link_to 'Notes', notes_path
                   %li.divider
                   %li
                     = link_to 'Login Out', destroy_user_session_path, method: :delete

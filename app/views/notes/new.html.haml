@@ -7,17 +7,17 @@
   .sidebar.col-md-3
     .panel.panel-default
       .panel-body
-        %h5 hello
+        %h5
+          = link_to '新建 Note', new_note_path, class: "btn btn-success btn-block"
       .panel-footer
-        = link_to "查看我的 2 条 Note...", notes_path, class: "text-muted"
+        = link_to "查看我的 #{Note.all.count} 条 Note...", notes_path, class: "text-muted"
 
-    .panel.panel-default
-      .panel-heading
-        我最近创造的 Note
-      .panel-body
-        %ul.list-group
-          %li.list-group-item
+    - if Note.all.count != 0
+      .panel.panel-default
+        .panel-heading
+          我最近创建的 Note
+        .panel-body
+          %ul.list-group
             - @notes.each do |note|
-              = link_to note.text, note, class: "text-muted"
-
--#= console
+              %li.list-group-item
+                = link_to note.text, note, class: "text-muted"

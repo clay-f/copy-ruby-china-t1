@@ -1,8 +1,13 @@
 .item.item1, .item.item2, .item.item3, .item.item4 {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16);
+    background-color: white;
     a {
         display: block;
         text-decoration: none;
+
+        img {
+            margin-left: 60px;
+        }
     }
 
     .text {

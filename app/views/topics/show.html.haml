@@ -1,11 +1,23 @@
-.panel.panel-default
-  .panel-body
-    - if @article.count != 0
-      - @article.each do |article|
-        %h2.col-xs-12.col-md-12
-          = link_to article.title, article
-          %span.badge.col-md-offset-3
-            = article.comments.count
-    - else
-      %p.help-block.text-capitalize
-        here no title yet.
+.row
+  .col-md-9
+    .panel.panel-default
+      .panel-body
+        - if @article.count != 0
+          %ul.list-group
+            - @article.each do |article|
+              %li.list-group-item
+                .media-body
+                  .media-heading
+                    = link_to article.title, article
+                  .media-info
+                    = link_to "#{article.node.nodeName}", topic_path, class: "text-muted"
+                    &bull;
+                    = article.comments.last.created_at
+                .media-right
+                  %span.badge.pull-right
+                    = article.comments.count
+        - else
+          %p.well.text-capitalize
+            here no title yet.
+
+  .col-md-3

@@ -1,7 +1,6 @@
 = simple_form_for ([@article, @comment]) do |f|
-  = f.input :raty
-  = f.input :body
-  = f.button :submit, class: "btn btn-primary"
-
-
-= console
+  .form-group
+    = f.input :raty
+    = f.text_area :body, class: "form-control", rows: 10
+  .form-group
+    = f.button :submit, class: "btn btn-primary"
