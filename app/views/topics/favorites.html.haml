@@ -8,7 +8,7 @@
               %a 所有节点
             %li
               = link_to '默认', topics_path
-            %li.active
+            %li
               = link_to '优质帖子', popular_topics_path
             %li
               = link_to '无人问津', no_reply_topics_path
@@ -16,44 +16,8 @@
               = link_to '最新发布', last_topics_path
     .panel.panel-default
       .panel-body
-        %ul.list-group
-          - @article.each do |article|
-            - if article.comments.count >= 5
-              %li.list-group-item
-                .media-body
-                  .media-heading
-                    = link_to article.title, article, style: "color: #222222;"
-                  .media-info
-                    = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
-                    - if ! article.comments.blank?
-                      &bull;
-                      = article.comments.last.created_at
-                .media-right
-                  %span.badge.pull-right
-                    = article.comments.count
-
-
-      .panel-footer.clearfix
-        %ul.pagination
-          %li.disabled
-            %a{href: "#"}
-              %span &laquo;
-              Previous
-          %li.active
-            %a{style: "color: #555;", :href => "#" } 1
-          %li
-            %a{style: "color: #555;", :href => "#" } 2
-          %li
-            %a{style: "color: #555;", :href => "#" } 3
-          %li
-            %a{style: "color: #555;", :href => "#" } 4
-          %li
-            %a{style: "color: #555;", :href => "#" } 5
-          %li
-            %a{style: "color: #555;",href: "#"}
-              Next
-              %span
-                &raquo;
+        .well.text-capitalize.text-center
+          there is no favorites !
   .col-md-3
     .panel.panel-default
       .panel-body
@@ -61,7 +25,7 @@
     .panel.panel-default
       .panel-heading 小贴士
       .panel-body
-        使用 CoffeeScript 和 Sass 来写 JavaScript 和 CSS 提高开发效率
+        本站是开源的哦，访问 http://gethomeland.com 获得更多信息
 
     .panel.panel-default
       .panel-heading 推荐 Ruby 资源

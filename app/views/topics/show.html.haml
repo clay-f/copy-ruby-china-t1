@@ -12,7 +12,8 @@
                   .media-info
                     = link_to "#{article.node.nodeName}", topic_path, class: "text-muted"
                     &bull;
-                    = article.comments.last.created_at
+                    - if ! article.comments.blank?
+                      = article.comments.last.created_at
                 .media-right
                   %span.badge.pull-right
                     = article.comments.count

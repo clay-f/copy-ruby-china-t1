@@ -15,6 +15,7 @@ Rails.application.routes.draw do
           get 'last'
           get 'no_reply'
           get 'popular'
+          get 'favorites'
       end
   end
   resources :sites, only: [:index]

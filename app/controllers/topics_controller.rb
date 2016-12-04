@@ -1,6 +1,9 @@
 class TopicsController < ApplicationController
 
-  before_action :set_article, only: [:last, :index, :no_reply, :popular]
+  before_action :set_article, only: [:last, :index, :no_reply, :popular, :favorites]
+
+  def favorites
+  end
 
   def popular
   end

@@ -2,17 +2,39 @@
   .col-md-12
     .panel.panel-default
       .panel-heading
-        %h3
-          = @article.title
-        %p
-          Node:
-          %span.text-muted
-            = @article.node.nodeName
+        .media-body
+          %h1.media-heading
+            = @article.title
+          .info
+            = link_to "#{@article.node.nodeName}", topic_path(@article.node.id), class: "text-muted"
+            &bull;
+            Created at
+            = @article.created_at
+            Last by
+            = @article.comments.last.user.email
+            replied at
+            = @article.comments.last.created_at
+
       .panel-body
         - if !@article.article_img.blank?
           = image_tag @article.article_img.url(:show_img)
         %p
           = @article.text
+
+      .panel-footer.clearfix
+        .opts
+          %a.text-muted{href: "#"}
+            %i.glyphicon.glyphicon-heart
+          %a.text-muted{href: "#"}
+            %i.glyphicon.glyphicon-bookmark
+            收藏
+          %span.opts.pull-right
+            - if user_signed_in?
+              - if @article.user_id == current_user.id
+                = link_to edit_article_path, class: "text-muted" do
+                  %i.glyphicon.glyphicon-pencil
+                = link_to article_path, method: :delete, data: { confirm: "Are you sure?" }, class: "text-muted" do
+                  %i.glyphicon.glyphicon-trash
 
     .panel.panel-default
       .panel-heading
@@ -38,9 +60,3 @@
           %li.list-group-item
             = link_to article.title, article, class: "text-muted"
 
-    - if user_signed_in?
-      - if @article.user_id == current_user.id
-        .btn.btn-group.col-xs-offset-5
-          = link_to 'Back', root_path, class: "btn btn-default"
-          = link_to 'Edit', edit_article_path, class: "btn btn-primary"
-          = link_to 'Destroy', article_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"

@@ -56,6 +56,8 @@
                     - else
                       %li
                         = link_to 'Notes', notes_path
+                  %li
+                    = link_to 'favorites', favorites_topics_path
                   %li.divider
                   %li
                     = link_to 'Login Out', destroy_user_session_path, method: :delete
@@ -65,11 +67,10 @@
               %li
                 = link_to 'Sign In', new_user_session_path
 
-            = form_tag search_articles_path, method: :get, class: "navbar-form navbar-right", role: "search" do
+            = form_tag search_articles_path, method: :get, class: "navbar-form navbar-right hidden-xs", role: "search" do
               .form-group
-                = text_field_tag :search, params[:search1], class: "form-control"
-                = submit_tag "搜索本站内容", name: "nil", class: "btn btn-fefault"
-
+                = text_field_tag :search, params[:search1], class: "form-control", placeholder: "搜索本站内容"
+                = submit_tag "search", name: "nil", class: "btn btn-fefault"
     .main
       .container
         = yield
