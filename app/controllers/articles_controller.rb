@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @article = Article.all.order("created_at DESC")
+    @article = Article.all.order("created_at DESC").shuffle[0..17]
   end
 
   def new
