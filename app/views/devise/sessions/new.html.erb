@@ -1,34 +1,71 @@
+
 <div class="row">
-    <div class="col-md-4 col-xs-4 col-md-offset-4 col-xs-offset-4 clearfix">
+    <div class="col-md-5 col-md-offset-2">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h2 class="panel-title">Log in</h2>
+                <div class="panel-title">
+                    <span class="text-muted"> Sign In </span>
+                </div>
             </div>
             <div class="panel-body">
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    <div class="field">
-                        <%= f.label :email %><br />
-                        <%= f.email_field :email, autofocus: true%>
-                    </div>
-
-                    <div class="field">
-                        <%= f.label :password %><br />
-                        <%= f.password_field :password, autocomplete: "off" %>
-                    </div>
-
-                    <% if devise_mapping.rememberable? -%>
+                <div class="form-group">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                         <div class="field">
-                            <%= f.check_box :remember_me %>
-                            <%= f.label :remember_me %>
+                            <%= f.label :email %><br />
+                            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "用户名 / Email"%>
                         </div>
-                    <% end -%>
 
-                    <div class="actions">
-                        <%= f.submit "Log in", class: "btn btn-primary btn-block"%>
                     </div>
-                <% end %>
+                    <div class="form-group">
+                        <div class="field">
+                            <%= f.label :password %><br />
+                            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "密码" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <% if devise_mapping.rememberable? -%>
+                            <div class="field">
+                                <%= f.check_box :remember_me %>
+                                <%= f.label :remember_me %>
+                            </div>
+                        <% end -%>
+                    </div>
+                    <div class="form-group">
+                        <div class="actions">
+                            <%= f.submit "Sign in", class: "btn btn-primary btn-block text-capitalize", style: "background-color: #3870CD;"%>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
 
-                <%= render "devise/shared/links" %>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title"><span class="text-muted"> Sign in with other services </span></div>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="https://ruby-china.org/account/auth/github" class="btn btn-default btn-block">
+                            <%= image_tag("github.gif", style: "width: 16px;") %>
+                            GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <%= link_to "Sign Up", new_user_registration_path, class: "text-muted" %>
+                    </li>
+                    <li class="list-group-item">
+                        <%= link_to "forgot your password?", new_user_password_path, class: "text-muted" %>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

@@ -26,6 +26,7 @@
                 .media-info
                   = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
                   - if ! article.comments.blank?
+                    &bull;
                     = article.comments.last.created_at
               .media-right
                 %span.badge.pull-right

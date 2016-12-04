@@ -1,38 +1,109 @@
-- if @article.count <= 0
+.row
+  .col-md-9
+    - if @article.count <= 0
 
-  %p.help-block.text-capitalize
-    there is no title ^_^.
+      %p.help-block.text-capitalize
+        there is no title ^_^.
 
-- else
+    - else
 
-  .panel.panel-default
-    .panel-body
-      - @article.each do |article|
-        %h5.col-md-12.col-xs-12
-          = link_to article.title, article, class: "text-muted"
-          %span.badge.col-md-offset-3
-            = article.comments.count
-          %hr
+      .panel.panel-default
+        .panel-body
+          %ul.list-group
+            - @article.each do |article|
+              %li.list-group-item
+                .media-body
+                  .media-heading
+                    = link_to article.title, article, class: "text-muted"
+                  .media-info
+                    = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
+                    - if ! article.comments.blank?
+                      &bull;
+                      = article.comments.last.created_at
+                .media-right
+                  %span.badge.pull-right
+                    = article.comments.count
 
-    .panel-footer
-      %ul.pagination
-        %li.disabled
-          %a{href: "#"}
-            %span
-              &laquo;
-            Prev
-        %li.active
-          %a{style: "color: #555", href: "#"} 1
-        %li
-          %a{style: "color: #555", href: "#"} 2
-        %li
-          %a{style: "color: #555", href: "#"} 3
-        %li
-          %a{style: "color: #555", href: "#"} 4
-        %li
-          %a{style: "color: #555", href: "#"} 5
-        %li
-          %a{style: "color: #555", href: "#"}
-            Next
-            %span
-              &raquo;
+
+        .panel-footer
+          %ul.pagination
+            %li.disabled
+              %a{href: "#"}
+                %span
+                  &laquo;
+                Prev
+            %li.active
+              %a{style: "color: #555", href: "#"} 1
+            %li
+              %a{style: "color: #555", href: "#"} 2
+            %li
+              %a{style: "color: #555", href: "#"} 3
+            %li
+              %a{style: "color: #555", href: "#"} 4
+            %li
+              %a{style: "color: #555", href: "#"} 5
+            %li
+              %a{style: "color: #555", href: "#"}
+                Next
+                %span
+                  &raquo;
+
+  .col-md-3
+    .panel.panel-default
+      .panel-body
+        = link_to "new topic", new_article_path, class: "text-capitalize btn btn-primary btn-block"
+    .panel.panel-default
+      .panel-heading 小贴士
+      .panel-body
+        railscasts.com 上面有很不错的 Rails 开发技巧的视频，通通看完你可以学到很多东西
+
+    .panel.panel-default
+      .panel-heading 推荐 Ruby 资源
+      .panel-body
+        %ul.list-group
+          %li.list-group-item
+            %i.glyphicon.glyphicon.cloud
+            = link_to 'Ruby 镜像', "https://ruby-china.org/wiki/ruby-mirror"
+          %li.list-group-item
+            %i.glyphicon.glyphicon-expand
+            = link_to 'Rails 视频教程', "http://railscasts.com/"
+          %li.list-group-item
+            %i.glyphicon.glyphicon-folder-close
+            = link_to 'Rails Guildes 中文版', "http://guides.ruby-china.org/"
+          %li.list-group-item
+            %i.glyphicon.glyphicon-folder-close
+            = link_to 'Ruby on Rails 教程', "https://railstutorial-china.org/"
+
+    .panel.panel-default
+      .panel-heading 友情社区
+      %ul.list-group
+        %li.list-group-item
+          = link_to image_tag("node.png", style: "width: 130px;"), "http://cnodejs.org"
+        %li.list-group-item
+          = link_to image_tag("golang.png", style: "width: 130px;"), "http://golangtc.com/"
+        %li.list-group-item
+          = link_to image_tag("phphub.png", style: "width: 130px;"), "https://laravel-china.org"
+        %li.list-group-item
+          = link_to image_tag("elixir.png", style: "width: 130px;"), "http://elixir-cn.com"
+        %li.list-group-item
+          = link_to image_tag("ionic.png", style: "width: 130px;"), "http://ionichina.com/"
+        %li.list-group-item
+          = link_to image_tag("testerhome.png", style: "width: 130px;"), "https://testerhome.com/"
+
+
+    .panel.panel-default
+      .panel-heading Statistics
+      .panel-body
+        %ul.list-group
+          %li.list-group-item
+            社区会员:
+            = User.all.count
+            人
+          %li.list-group-item
+            帖子数:
+            = Article.all.count
+            个
+          %li.list-group-item
+            回帖数:
+            = Comment.all.count
+            条
