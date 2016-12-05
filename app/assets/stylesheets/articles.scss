@@ -28,6 +28,27 @@ img.hello, img.documents, img.ruby, img.chat{
 
 body {
     background-color:  #E9EAED;
+
+    .panel.panel-default {
+
+        .panel-footer.clearfix {
+
+                .opts {
+                    display: block;
+
+                    span.opts.pull-right {
+                        text-decoration: none;
+                        padding:3px;
+
+                        a {
+                            margin-right: 10px;
+                            display: inline-block;
+                        }
+                }
+            }
+        }
+    }
+
 }
 
 .panel-body.text-center {

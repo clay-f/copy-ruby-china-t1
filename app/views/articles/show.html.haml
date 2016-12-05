@@ -16,8 +16,9 @@
             = @article.comments.last.created_at
 
       .panel-body
-        - if !@article.article_img.blank?
-          = image_tag @article.article_img.url(:show_img)
+        - if ! @article.article_img.blank?
+          .img-thumbnail
+            = image_tag @article.article_img.url(:show_img), class: "img-responsive"
         %p
           = @article.text
 
