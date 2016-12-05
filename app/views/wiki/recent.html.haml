@@ -1,0 +1,87 @@
+.row
+  .sidebar.wiki-sidebar.col-sm-3
+    .panel.panel-default
+      .panel-body
+        %strong.text-muted 导航
+        %ul
+          %li
+            = link_to '首页', wiki_index_path
+          %li
+            = link_to 'WiKi index', recent_wiki_index_path, target: "mainFrame"
+          %li
+            = link_to 'New Page', "#"
+        %strong.text-muted WiKi 推荐内容
+        %ul
+          %li
+            = link_to "Ruby 开发工具", tools_wiki_index_path
+          %li
+            = link_to "书籍推荐", books_wiki_index_path
+          %li
+            = link_to "RVM 实用指南", rvm_guide_wiki_index_path
+          %li
+            = link_to "rbenv 实用指南", rben_guide_wiki_index_path
+          %li
+            = link_to "Ruby 风格指导", coding_style_wiki_index_path
+          %li
+            = link_to "Rails 风格指导", rails_style_guide_wiki_index_path
+          %li
+            = link_to "常用 Gem 列表", gems_wiki_index_path
+          %li
+            = link_to "Rails 主机，VPS，服务器推荐", rails_hosting_wiki_index_path
+          %li
+            = link_to "如何在 Ubuntu Server 14.04 上面准备好 Rails 部署环境", deploy_rails_on_ubuntu_server_wiki_index_path
+          %li
+            = link_to "如何在 Mac 下快速准备 Rails 环境", mac_nginx_passenger_rails_wiki_index_path
+
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        WiKi Index
+      .panel-body
+        %ul
+          %li
+            = link_to "赞助与广告投放"
+          %li
+            = link_to "The Rails Doctrine - Rails 信条"
+          %li
+            = link_to "Ruby 源代码镜像服务"
+          %li
+            = link_to "如何在 Ubuntu Server 上面准备好 Rails 部署环境"
+          %li
+            = link_to "开发资源, 学习资源一览表"
+          %li
+            = link_to "ActiveRecord 高级技巧"
+          %li
+            = link_to "Grape 相关文章"
+          %li
+            = link_to "Rails 实现全文搜索"
+          %li
+            = link_to "Rails 实现全文搜索"
+          %li
+            = link_to "Ruby、Rails 性能分析与优化"
+          %li
+            = link_to "深入透彻了解 Rails 应用部署"
+          %li
+            = link_to "Rails 缓存实践"
+          %li
+            = link_to "GoRails上Rails初学者指南"
+          %li
+            = link_to "在 Ubuntu 12.04 Server 上安装部署 Ruby on Rails 应用"
+          %li
+            = link_to "RubyMotion 开发iOS App 常用的Gem"
+          %li
+            = link_to "test"
+          %li
+            = link_to "发生error时，不表示错误页面，也不发送mail"
+          %li
+            = link_to "NoMethodError: undefined method `toutf8'"
+          %li
+            = link_to "String += \“id = \#{array}\”, rails2和rails3不同"
+          %li
+            = link_to "Caboose::EZ::Condition -> where"
+          %li
+            = link_to "number_to_currency方法变更"
+          %li
+            = link_to "undefined method `rescue_action_locally'"
+          %li
+            = link_to "has_many :through 删除机制改变"

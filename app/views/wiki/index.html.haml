@@ -1,0 +1,97 @@
+.row
+  .sidebar.wiki-sidebar.col-sm-3
+    .panel.panel-default
+      .panel-body
+        %strong.text-muted 导航
+        %ul
+          %li
+            = link_to '首页', wiki_index_path
+          %li
+            = link_to 'WiKi index', recent_wiki_index_path, target: "mainFrame"
+          %li
+            = link_to 'New Page', "#"
+        %strong.text-muted WiKi 推荐内容
+        %ul
+          %li
+            = link_to "Ruby 开发工具", tools_wiki_index_path
+          %li
+            = link_to "书籍推荐", books_wiki_index_path
+          %li
+            = link_to "RVM 实用指南", rvm_guide_wiki_index_path
+          %li
+            = link_to "rbenv 实用指南", rben_guide_wiki_index_path
+          %li
+            = link_to "Ruby 风格指导", coding_style_wiki_index_path
+          %li
+            = link_to "Rails 风格指导", rails_style_guide_wiki_index_path
+          %li
+            = link_to "常用 Gem 列表", gems_wiki_index_path
+          %li
+            = link_to "Rails 主机，VPS，服务器推荐", rails_hosting_wiki_index_path
+          %li
+            = link_to "如何在 Ubuntu Server 14.04 上面准备好 Rails 部署环境", deploy_rails_on_ubuntu_server_wiki_index_path
+          %li
+            = link_to "如何在 Mac 下快速准备 Rails 环境", mac_nginx_passenger_rails_wiki_index_path
+
+  .col-md-9
+    .panel.panel-default
+      .panel-body
+        .markdown
+          %p
+            本栏目致力于组织整理 Ruby 中文社区的精华文章，便于大家快速查阅。
+          %p
+            欢迎热心开发者参与维护社区 Wiki 资料，你可以做：
+          %ol
+            %li
+              翻译国外高质量的 Ruby 技术文章
+            %li
+              撰写完整的 Ruby 技术教程，新手教程等
+            %li
+              撰写或者翻译热门 Gem 的中文使用指导
+            %li
+              分享各类部署方案
+          %h3
+            必读推荐
+          %hr/
+          %ul
+            %li
+              = link_to "The Rails Doctrine - Rails 信条", "#"
+          %strong
+            Ruby 入门教程
+          %ul
+            %li
+              = link_to "Ruby on Rails 信条"
+            %li
+              = link_to "如何快速正确的安装 Ruby, Rails 运行环境"
+            %li
+              =  link_to "如何从零开始学会 Rails"
+            %li
+              = link_to "Rails Guides 简体中文"
+          %strong
+            Ruby 高级进阶教程
+            %ul
+              %li
+                = link_to "Rails API 文档"
+              %li
+                = link_to "深入透彻了解 Rails 应用部署"
+              %li
+                = link_to "Rails 缓存相关"
+              %li
+                = link_to "Ruby 性能分析与优化"
+              %li
+                = link_to "ActiveRecord 相关深入文章"
+              %li
+                = link_to "Ruby、Rails 高级技巧"
+              %li
+                = link_to "Rails 实现全文搜索"
+              %li
+                = link_to "Grape 相关文章"
+          %strong
+            其他地方的中文资料
+            %ul
+              %li
+                = link_to "Ruby 语言新手教程"
+              %li
+                = link_to "Git 版本管理工具快速入门"
+              %li
+                = link_to "Ruby on Rails 實戰聖經"

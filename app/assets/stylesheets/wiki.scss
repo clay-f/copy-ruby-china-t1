@@ -1,3 +1,32 @@
-// Place all the styles related to the wiki controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+div.sidebar.wiki-sidebar .panel.panel-default ul li {
+
+    display: list-item;
+    line-height: 180%;
+    a {
+        color: black;
+    }
+}
+
+div.col-md-9 .panel.panel-default .panel-body .markdown {
+
+    ul {
+        margin-bottom: 25px;
+    }
+
+    ul li {
+        line-height: 180%;
+
+        a {
+            color: #116CD3;
+        }
+    }
+}
+
+
+.col-md-9 .panel.panel-default .panel-body {
+
+    ul li a {
+        color: black;
+    }
+}
+
