@@ -23,9 +23,9 @@
   .col-md-3
     .item.item2
       .icon
-        = link_to image_tag("people.gif", class: "documents")
+        = link_to image_tag("people.gif", class: "documents"), wiki_index_path
       .text
-        %a{href: "/articles", class: "text-muted"}
+        %a{href: "/wiki", class: "text-muted"}
           技术文档
           %i.pull-right
             %span.glyphicon.glyphicon-arrow-right
@@ -41,9 +41,9 @@
   .col-md-3
     .item.item4
       .icon
-        = link_to image_tag("ruby.gif", class: "ruby"), topics_path
+        = link_to image_tag("ruby.gif", class: "ruby"), popular_topics_path
       .text
-        %a{href: "/topics", class: "text-muted"}
+        %a{href: "/topics/popular", class: "text-muted"}
           精华文章
           %i.pull-right
             %span.glyphicon.glyphicon-arrow-right

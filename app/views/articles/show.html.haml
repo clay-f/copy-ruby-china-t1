@@ -10,10 +10,11 @@
             &bull;
             Created at
             = @article.created_at
-            Last by
-            = @article.comments.last.user.email
-            replied at
-            = @article.comments.last.created_at
+            - if ! @article.comments.blank?
+              Last by
+              = @article.comments.last.user.email
+              replied at
+              = @article.comments.last.created_at
 
       .panel-body
         - if ! @article.article_img.blank?
@@ -60,3 +61,11 @@
         - Article.all.shuffle[0..4].each do |article|
           %li.list-group-item
             = link_to article.title, article, class: "text-muted"
+:javascript
+  $('.star-rating').raty({
+    path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+    }
+  });

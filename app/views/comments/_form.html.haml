@@ -1,6 +1,13 @@
 = simple_form_for ([@article, @comment]) do |f|
   .form-group
-    = f.input :raty
+    #star-rating
+    %br/
     = f.text_area :body, class: "form-control", rows: 10
   .form-group
     = f.button :submit, class: "btn btn-primary"
+
+:javascript
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'comment[raty]'
+  });
