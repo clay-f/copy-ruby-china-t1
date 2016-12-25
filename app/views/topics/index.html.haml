@@ -34,25 +34,7 @@
 
       .panel-footer.clearfix
         %ul.pagination
-          %li.disabled
-            %a{href: "#"}
-              %span &laquo;
-              Previous
-          %li.active
-            %a{style: "color: #555;", :href => "#" } 1
-          %li
-            %a{style: "color: #555;", :href => "#" } 2
-          %li
-            %a{style: "color: #555;", :href => "#" } 3
-          %li
-            %a{style: "color: #555;", :href => "#" } 4
-          %li
-            %a{style: "color: #555;", :href => "#" } 5
-          %li
-            %a{style: "color: #555;",href: "#"}
-              Next
-              %span
-                &raquo;
+          = will_paginate @article, renderer: BootstrapPagination::Rails, previous_label: "old", next_label: "new", inner_window: 2, outer_window: 0
   .col-md-3
     .panel.panel-default
       .panel-body
@@ -60,7 +42,8 @@
     .panel.panel-default
       .panel-heading 小贴士
       .panel-body
-        一切都需要先上传一个头像开始 !
+        = @random_text
+
 
     .panel.panel-default
       .panel-heading 推荐 Ruby 资源

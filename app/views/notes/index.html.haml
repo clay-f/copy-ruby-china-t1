@@ -26,6 +26,7 @@
                   = notes.created_at
               %hr/
       .panel-footer.clearfix
+        = will_paginate @notes, renderer: BootstrapPagination::Rails, previous_label: "old", next_label: "new", inner_window: 2, outer_window: 0
 
   .col-md-3.sidebar
     .panel.panel-default

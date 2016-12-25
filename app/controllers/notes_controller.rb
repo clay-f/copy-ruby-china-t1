@@ -4,7 +4,7 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
 before_action :set_notes, only: [:edit, :new, :show, :index]
 
   def index
-    @note = Note.all.order("created_at DESC")
+    @notes = Note.all.order("created_at DESC").paginate(page: params[:page], :per_page => 7)
   end
 
   def new

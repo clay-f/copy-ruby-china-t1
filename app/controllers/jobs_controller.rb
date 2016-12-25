@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
   def index
-    @article = Article.where(node_id: 2)
+    @article = Article.all.order("created_at DESC").paginate(page: params[:page], :per_page => 7)
   end
 end
