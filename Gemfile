@@ -28,9 +28,10 @@ gem 'searchkick', '~> 1.4'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
-group :development, :test do
+group :development do
   gem 'sqlite3'
 end
+
 group :production do
   gem 'pg'
 end
