@@ -5,6 +5,11 @@ class CreateArticles < ActiveRecord::Migration[5.0]
       t.text :text
 
       t.timestamps
+
+      def change
+        create_table :comments do |t|
+        end
+      end
     end
   end
 end
