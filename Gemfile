@@ -27,6 +27,7 @@ gem 'paperclip', '~> 5.1'
 gem 'searchkick', '~> 1.4'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'redcarpet', '~> 3.4'
 
 group :development, :test do
   gem 'sqlite3'

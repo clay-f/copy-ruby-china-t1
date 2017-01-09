@@ -21,7 +21,7 @@
           .img-thumbnail
             = image_tag @article.article_img.url(:show_img), class: "img-responsive"
         %p
-          = @article.text
+          = markdown @article.text
 
       .panel-footer.clearfix
         .opts

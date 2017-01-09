@@ -1,3 +1,15 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+    foo = ->
+        $('#hello').toggle()
+        $('#hello').css({
+            'z-index': 1024,
+            'position': "fixed",
+            'top': '300px',
+            'left': "300px",
+            'width': "500px",
+            "height": "500px"
+
+        })
+
+    $('.all-nodes').on('click', foo)
+

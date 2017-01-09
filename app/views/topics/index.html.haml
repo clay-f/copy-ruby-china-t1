@@ -1,11 +1,16 @@
+#hello
+  .panel.panel-default
+    .panel-body
+      .well
+        hello world!
 .row
   .col-md-9
-    %nav.navbar.navbar-default
+    %nav.navbar.navbar-default.sub-bar
       .navbar-header
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li
-              %a 所有节点
+              %a{ class: "all-nodes"} 所有节点
             %li.active
               = link_to '默认', topics_path
             %li
