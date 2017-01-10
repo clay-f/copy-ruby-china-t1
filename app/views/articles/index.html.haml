@@ -63,7 +63,7 @@
           = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
           &bull;
           - if ! article.comments.blank?
-            = article.comments.last.created_at
+            = time_ago_in_words(article.comments.last.created_at)
         %hr/
 
   .panel-footer

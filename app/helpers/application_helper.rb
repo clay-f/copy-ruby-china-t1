@@ -1,7 +1,14 @@
 module ApplicationHelper
 
+  class CodeRayify < Redcarpet::Render::HTML
+    def block_code(code, language)
+      CodeRay.scan(code, language).div
+    end
+  end
+
+
   def markdown(content)
-    renderer = Redcarpet::Render::HTML.new(hard_warp: true, filter_html: true)
+    renderer = CodeRayify.new(hard_warp: true, filter_html: true)
     options = {
       autolink: true,
       no_intra_emaphasis: true,

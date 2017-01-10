@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="media-body">
+                    <h1 class="media-heading">
+                        <%= @article.title %>
+                    </h1>
+                    <div class="info">
+                        <%= link_to "#{@article.node.nodeName}", topic_path(@article.node.id), class: "text-muted" %>
+                        &bull;
+                        <%= @article.created_at.strftime("%Y-%m-%d") %>
+                        <% if ! @article.comments.blank? %>
+                            Last by
+                            <%= @article.comments.last.user.email %>
+                            replied at
+                            <%= time_ago_in_words(@article.comments.last.created_at) %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <% if ! @article.article_img.blank? %>
+                    <div class="img-thumbnail">
+                        <%= image_tag @article.article_img.url(:show_img), class: "img-responsive" %>
+                    </div>
+                <% end %>
+                <p>
+                    <%= markdown @article.text %>
+                        <%= link_to  "edit", edit_article_path, class: "text-muted"  %>
+                        <%= link_to "destroy", article_path, method: :delte, data: { confirm: "Are you sure?" }, class: "text-muted" %>
+                </p>
+            </div>
+            <div class="panel-footer clearfix">
+                <div class="opts">
+                    <a href="#" class="text-muted">
+                        <i class="glyphicon.glyphicon-heart"></i>
+                    </a>
+                    <span class="opts.pull-right">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
