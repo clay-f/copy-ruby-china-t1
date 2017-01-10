@@ -27,8 +27,6 @@
                 <% end %>
                 <p>
                     <%= markdown @article.text %>
-                        <%= link_to  "edit", edit_article_path, class: "text-muted"  %>
-                        <%= link_to "destroy", article_path, method: :delte, data: { confirm: "Are you sure?" }, class: "text-muted" %>
                 </p>
             </div>
             <div class="panel-footer clearfix">
@@ -36,11 +34,62 @@
                     <a href="#" class="text-muted">
                         <i class="glyphicon.glyphicon-heart"></i>
                     </a>
+                    <a href="#" class="text-muted">
+                        <i class="glyphicon.glyphicon-bookmark"></i>
+                        收藏
+                    </a>
                     <span class="opts.pull-right">
+                        <%= link_to edit_article_path, class: "text-muted" do %>
+                            <i class="glyphicon.glyphicon-pencil"></i>
+                        <% end %>
+                        <%= link_to article_path, method: :delete, data: { confirm: "Are you sure?" }, class: "text-muted" do %>
+                            <i class="glyphicon.glyphicon-trash"></i>
+                        <% end %>
                     </span>
                 </div>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                共收到
+                <%= @article.comments.all.count %>
+                条回复
+            </div>
+            <div class="panel-body">
+
+                <% if @article.comments.blank? %>
+                    <div class="well text-capitalize help-block text-center">
+                        no reply at the moment.
+                    </div>
+                <% else %>
+                    <div class="well"> hello world</div>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <span class="text-muted">
+                    <%= link_to '发表评论', new_article_comment_path(@article), role: "button", class: "btn btn-primary" %>
+                </span>
+            </div>
+        </div>
+
+        <div class="panel panel-default clearfix">
+            <div class="panel-heading"> 相关话题 </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <% Article.all.shuffle[0..4].each do |article| %>
+                        <li class="list-group-item">
+                            <%= link_to article.title, article, class: "text-muted" %>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+
     </div>
 </div>
+
 
