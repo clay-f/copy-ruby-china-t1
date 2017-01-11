@@ -1,0 +1,30 @@
+<div class="form-group">
+    <%= simple_form_for @note do |f| %>
+        <%= f.text_area :text, class: "form-control", "rows": 25 %>
+        <div class="help-block text-capitalize">
+            please use
+            <a href="#", style="color: black;">markdown</a>
+            document
+            format
+        <div class="form-group">
+            <label class="control-label" for="">
+                <input type="checkbox">
+            </label>
+            <span class="text-danger">
+                <i class="glyphicon glyphicon-warning-sign"></i>
+                除非你选择公开，否则此 Note 的所有内容将是保密的！
+            </span>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <%= f.button :submit, class: "btn btn-primary btn-lg btn-block", value: "Save" %>
+                </div>
+                <div class="col-md-2">
+                    <%= link_to 'Cancel', notes_path, class: "btn btn-default btn-lg btn-block" %>
+                </div>
+            </div>
+        </div>
+        </div>
+    <% end %>
+</div>

@@ -32,18 +32,18 @@
             <div class="panel-footer clearfix">
                 <div class="opts">
                     <a href="#" class="text-muted">
-                        <i class="glyphicon.glyphicon-heart"></i>
+                        <i class="glyphicon glyphicon-heart"></i>
                     </a>
                     <a href="#" class="text-muted">
-                        <i class="glyphicon.glyphicon-bookmark"></i>
+                        <i class="glyphicon glyphicon-bookmark"></i>
                         收藏
                     </a>
-                    <span class="opts.pull-right">
+                    <span class="opts pull-right">
                         <%= link_to edit_article_path, class: "text-muted" do %>
-                            <i class="glyphicon.glyphicon-pencil"></i>
+                            <i class="glyphicon glyphicon-pencil"></i>
                         <% end %>
                         <%= link_to article_path, method: :delete, data: { confirm: "Are you sure?" }, class: "text-muted" do %>
-                            <i class="glyphicon.glyphicon-trash"></i>
+                            <i class="glyphicon glyphicon-trash"></i>
                         <% end %>
                     </span>
                 </div>
@@ -63,7 +63,7 @@
                         no reply at the moment.
                     </div>
                 <% else %>
-                    <div class="well"> hello world</div>
+                    <%= render @article.comments %>
                 <% end %>
             </div>
         </div>

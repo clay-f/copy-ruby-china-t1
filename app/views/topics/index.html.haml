@@ -32,7 +32,7 @@
                   = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
                   - if ! article.comments.blank?
                     &bull;
-                    = article.comments.last.created_at
+                    = article.comments.last.created_at.strftime("%Y-%m-%d")
               .media-right
                 %span.badge.pull-right
                   = article.comments.count

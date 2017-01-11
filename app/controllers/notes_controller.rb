@@ -28,7 +28,11 @@ before_action :set_notes, only: [:edit, :new, :show, :index]
   end
 
   def update
-
+    if @note.update(note_params)
+      redirect_to @note
+    else
+      render 'edit'
+    end
   end
 
   def destroy
