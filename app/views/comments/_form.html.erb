@@ -1,0 +1,16 @@
+<%= simple_form_for([@article, @comment]) do |f| %>
+    <div class="form-group">
+        <div id="star-rating"></div>
+        <br />
+        <%= f.text_area :body, class: "form-control", rows: 10 %>
+    </div>
+    <div class="form-group">
+        <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+<% end %>
+<script type="text/javascript" charset="utf-8">
+    $('div#star-rating').raty({
+        path: "/assets/",
+        scoreName: "comment[raty]"
+    });
+</script>
