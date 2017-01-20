@@ -32,7 +32,7 @@
                   = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
                   - if ! article.comments.blank?
                     &bull;
-                    = article.comments.last.created_at.strftime("%Y-%m-%d")
+                    = article.comments.last.created_at.strftime("%Y 年 %m 月 %d 日")
               .media-right
                 %span.badge.pull-right
                   = article.comments.count
@@ -43,7 +43,7 @@
   .col-md-3
     .panel.panel-default
       .panel-body
-        = link_to "new topic", new_article_path, class: "text-capitalize btn btn-primary btn-block"
+        = link_to "new article", new_article_path, class: "text-capitalize btn btn-primary btn-block"
     .panel.panel-default
       .panel-heading 小贴士
       .panel-body

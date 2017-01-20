@@ -49,6 +49,12 @@ body {
         }
     }
 
+    #post_content {
+        .panel-body h5 a {
+            text-decoration: none;
+        }
+    }
+
 }
 
 .panel-body.text-center {

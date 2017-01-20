@@ -19,7 +19,7 @@
                     = link_to article.node.nodeName, topic_path(article.node.id), class: "text-muted"
                     - if ! article.comments.blank?
                       &bull;
-                      = article.comments.last.created_at
+                      = article.comments.last.created_at.strftime("%Y 年 %m 月 %d 日")
                 .media-right
                   %span.badge.pull-right
                     = article.comments.count
@@ -35,7 +35,7 @@
     .panel.panel-default
       .panel-heading 小贴士
       .panel-body
-        railscasts.com 上面有很不错的 Rails 开发技巧的视频，通通看完你可以学到很多东西
+        = @random_text
 
     .panel.panel-default
       .panel-heading 推荐 Ruby 资源

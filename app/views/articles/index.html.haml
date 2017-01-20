@@ -50,13 +50,13 @@
 %br/
 
 
-.panel.panel-default
+.panel.panel-default#post_content
   .panel-heading
     %p.panel-title 社区精华帖
   .panel-body.row
     - @article.each do |article|
       %h5.col-md-6.clearfix
-        = link_to article.title, article, style: "color: black";
+        = link_to truncate(article.title, length: 30), article, style: "color: black";
         %span.badge.pull-right
           = article.comments.count
         .info.text-muted
@@ -64,6 +64,7 @@
           &bull;
           - if ! article.comments.blank?
             = time_ago_in_words(article.comments.last.created_at)
+            ago
         %hr/
 
   .panel-footer

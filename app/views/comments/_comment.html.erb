@@ -1,6 +1,8 @@
 <ul class="list-group">
     <li class="list-group-item clearfix">
-        <p><%= current_user.created_at.strftime("%Y-%m-%d %H:%M:%p") %> last replied: </p>
+        <% if user_signed_in? %>
+            <p><%= current_user.created_at.strftime("%Y 年 %m 月 %d 日 %H:%M %p") %> last replied: </p>
+        <% end %>
         <div class="star-rating" data-score="<%= comment.raty %>"></div>
         <p>
             <%= markdown comment.body %>

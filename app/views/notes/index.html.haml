@@ -16,14 +16,14 @@
             - @notes.each do |notes|
               %list-group-item
                 .media-heading
-                  = link_to notes.text, notes, class: "text-muted"
+                  = link_to truncate(notes.text, length: 300), notes, class: "text-muted"
                   %span.pull-right
                     = link_to notes do
                       %i.glyphicon.glyphicon-pencil
                 .info
                   = notes.text.length
                   characters,
-                  = notes.created_at.strftime("%Y-%m-%d %H:%M")
+                  = notes.created_at.strftime("%Y 年 %m 月 %d 日 %H:%M")
               %hr/
       .panel-footer.clearfix
         = will_paginate @notes, renderer: BootstrapPagination::Rails, previous_label: "&larr;Previous", next_label: "Next&rarr;", inner_window: 2, outer_window: 0
@@ -42,5 +42,5 @@
           %ul.list-group
             - @notes.each do |note|
               %li.list-group-item
-                = link_to note.text, note, class: "text-muted"
+                = link_to truncate(note.text, length: 30), note, class: "text-muted"
 

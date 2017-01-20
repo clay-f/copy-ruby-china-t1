@@ -17,7 +17,7 @@
                 <ul class="list-group">
                     <% @notes.each do |note| %>
                         <li class="list-group-item">
-                            <%= link_to note.text, note, class: "text-muted" %>
+                            <%= link_to truncate(note.text, length: 30), note, class: "text-muted" %>
                         </li>
                     <% end %>
                 </ul>
